@@ -1,5 +1,11 @@
 # Personalized Networking Assistant
 
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?logo=fastapi)
+![Gemini AI](https://img.shields.io/badge/Google-Gemini_AI-blue?logo=google)
+![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 ## Project Overview
 
 The Personalized Networking Assistant is an AI-powered web application designed to help students, professionals, and job seekers prepare for networking conversations. The application analyzes current events using Artificial Intelligence, generates relevant discussion topics, verifies factual information, maintains conversation history, generates downloadable PDF reports, and collects user feedback through an interactive web interface.
