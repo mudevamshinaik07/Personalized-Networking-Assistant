@@ -67,7 +67,7 @@ Personalized-Networking-Assistant/
 │   ├── style.css
 │   └── script.js
 │
-├── networking.db
+|
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -77,20 +77,33 @@ Personalized-Networking-Assistant/
 
 ## Modules
 
+### Dashboard
+
+
+The Dashboard serves as the home page of the Personalized Networking Assistant. It provides users with an overview of the application's features and offers easy navigation to all modules, including Event Analysis, Topic Generator, Fact Checker, Conversation History, Feedback, and About sections. The dashboard features a modern and responsive interface designed to provide a smooth user experience.
+
+![Dashboard](screenshots/Dashboard.png)
+
 ### Event Analysis
 - AI-generated event summaries
 - Talking points
 - Networking tips
 - Confidence score
 
+![Analyze Event](screenshots/Analyze.png)
+
 ### Discussion Topic Generator
 - AI-generated discussion topics
 - Professional conversation starters
+
+![Topic Generator](screenshots/Topic-Generator.png)
 
 ### Fact Checker
 - Information verification
 - Confidence score
 - Explanation and source
+
+![Fact Checker](screenshots/Fact_Checker.png)
 
 ### Conversation History
 - View history
@@ -98,10 +111,14 @@ Personalized-Networking-Assistant/
 - Delete history
 - Download history as PDF
 
+![History](screenshots/History-Table.png)
+
 ### Feedback System
 - Star rating
 - User comments
 - Database storage
+
+![Feedback](screenshots/Feedback.png)
 
 ---
 
@@ -117,6 +134,8 @@ Personalized-Networking-Assistant/
 | GET | `/history/{id}/pdf` | Download history as PDF |
 | POST | `/feedback` | Submit feedback |
 | GET | `/feedback` | View feedback |
+
+![Swagger API](screenshots/FastAPI.png)
 
 ---
 
