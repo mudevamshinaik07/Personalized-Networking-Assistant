@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personalized Networking Assistant</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+
+<!-- History Details Modal -->
+<div id="historyModal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <span id="closeHistoryModal" class="close">&times;</span>
+
+        <h2>History Details</h2>
+
+        <hr>
+
+        <h3>Event</h3>
+        <p id="modalEvent"></p>
+
+        <h3>Summary</h3>
+        <p id="modalSummary"></p>
+
+        <!-- ADD THESE LINES -->
+        <h3>Talking Points</h3>
+        <ul id="modalTalkingPoints"></ul>
+
+        <h3>Networking Tips</h3>
+        <ul id="modalNetworkingTips"></ul>
+        <!-- END OF NEW LINES -->
+
+        <h3>Confidence</h3>
+        <p id="modalConfidence"></p>
+
+        <h3>Date</h3>
+        <p id="modalDate"></p>
+
+    </div>
+
+</div>
+</div>
+<script src="script.js"></script>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+  <div class="bg-grid"></div>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar glass">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <div>
+          <h1>PNA</h1>
+          <p>AI Networking Assistant</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#home" class="nav-link active">
+          <i class="fa-solid fa-house"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#analyze" class="nav-link">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Analyze</span>
+        </a>
+        <a href="#topics" class="nav-link">
+          <i class="fa-solid fa-comments"></i>
+          <span>Topics</span>
+        </a>
+        <a href="#factcheck" class="nav-link">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Fact Check</span>
+        </a>
+        <a href="#history" class="nav-link">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>History</span>
+        </a>
+        <a href="#feedback" class="nav-link">
+          <i class="fa-solid fa-star"></i>
+          <span>Feedback</span>
+        </a>
+        <a href="#about" class="nav-link">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer glass-soft">
+        <p class="small-label">System Status</p>
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span>Backend Ready</span>
+        </div>
+        <small>Connected to FastAPI services</small>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Topbar -->
+      <header class="topbar glass">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div>
+            <h2>Personalized Networking Assistant</h2>
+            <p>AI Powered Networking Platform</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="primary-btn" onclick="document.getElementById('analyze').scrollIntoView({behavior:'smooth'})">
+            Start Networking
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero / Landing -->
+      <section id="home" class="hero-section glass">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i>
+            <span>Modern AI SaaS Interface</span>
+          </div>
+
+          <h1>
+            Build better professional connections with
+            <span>AI-powered networking intelligence</span>
+          </h1>
+
+          <p>
+            Analyze current events, generate discussion topics, verify information,
+            review conversation history, and improve your networking outcomes with a
+            polished assistant built for students and professionals.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-btn" onclick="document.getElementById('analyze').scrollIntoView({behavior:'smooth'})">
+              <i class="fa-solid fa-bolt"></i>
+              Start Networking
+            </button>
+            <button class="secondary-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+              <i class="fa-solid fa-circle-info"></i>
+              Learn More
+            </button>
+          </div>
+
+          <div class="feature-highlights">
+            <div class="highlight-card glass-soft">
+              <i class="fa-solid fa-newspaper"></i>
+              <span>Analyze Current Events</span>
+            </div>
+            <div class="highlight-card glass-soft">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span>Generate Discussion Topics</span>
+            </div>
+            <div class="highlight-card glass-soft">
+              <i class="fa-solid fa-check-double"></i>
+              <span>Fact Checking</span>
+            </div>
+            <div class="highlight-card glass-soft">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <span>Conversation History</span>
+            </div>
+            <div class="highlight-card glass-soft">
+              <i class="fa-solid fa-comment-dots"></i>
+              <span>User Feedback</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card glass-soft">
+            <h3>01</h3>
+            <p>Analyze events into clear networking summaries</p>
+          </div>
+          <div class="stat-card glass-soft">
+            <h3>02</h3>
+            <p>Generate smart talking points instantly</p>
+          </div>
+          <div class="stat-card glass-soft">
+            <h3>03</h3>
+            <p>Check facts before using them in conversations</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Overview -->
+      <section class="dashboard-grid">
+        <div class="mini-card glass">
+          <div class="mini-icon blue"><i class="fa-solid fa-brain"></i></div>
+          <div>
+            <h4>AI Analysis</h4>
+            <p>Summaries, talking points, and networking tips</p>
+          </div>
+        </div>
+
+        <div class="mini-card glass">
+          <div class="mini-icon cyan"><i class="fa-solid fa-bullhorn"></i></div>
+          <div>
+            <h4>Topic Generator</h4>
+            <p>Smart prompts for meaningful professional discussions</p>
+          </div>
+        </div>
+
+        <div class="mini-card glass">
+          <div class="mini-icon green"><i class="fa-solid fa-shield"></i></div>
+          <div>
+            <h4>Verification Layer</h4>
+            <p>Fact-check statements before networking conversations</p>
+          </div>
+        </div>
+
+        <div class="mini-card glass">
+          <div class="mini-icon purple"><i class="fa-solid fa-database"></i></div>
+          <div>
+            <h4>History Tracking</h4>
+            <p>Review, search, and manage previous analyses</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Analyze Event Section -->
+      <section id="analyze" class="section-block">
+        <div class="section-header">
+          <div>
+            <p class="section-tag">Dashboard</p>
+            <h2>Analyze Current Event</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="two-col-layout">
+          <div class="card glass">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-chart-line"></i> Event Analysis</h3>
+              <span class="badge">POST /analyze-event</span>
+            </div>
+
+            <label for="eventInput" class="input-label">Enter current event</label>
+            <textarea
+              id="eventInput"
+              class="input-control"
+              rows="6"
+              placeholder="Example: India launches new AI Mission"
+            ></textarea>
+
+            <div class="action-row">
+              <button id="analyzeBtn" class="primary-btn">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Analyze
+              </button>
+
+              <button id="clearAnalyzeBtn" class="ghost-btn">
+                <i class="fa-solid fa-eraser"></i>
+                Clear
+              </button>
+            </div>
+
+            <div id="analyzeLoader" class="loader hidden">
+              <div class="spinner"></div>
+              <span>Analyzing event...</span>
+            </div>
+
+            <div id="analyzeStatus" class="api-status hidden"></div>
+          </div>
+
+          <div class="card glass result-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-robot"></i> AI Response</h3>
+              <span class="badge success">Live Output</span>
+            </div>
+
+            <div class="result-section">
+              <h4>Summary</h4>
+              <p id="summaryOutput" class="empty-state">
+                Your event summary will appear here.
+              </p>
+            </div>
+
+            <div class="result-section">
+              <h4>Talking Points</h4>
+              <ul id="talkingPointsOutput" class="result-list">
+                <li class="empty-state">No talking points generated yet.</li>
+              </ul>
+            </div>
+
+            <div class="result-section">
+              <h4>Networking Tips</h4>
+              <ul id="networkingTipsOutput" class="result-list">
+                <li class="empty-state">No networking tips available yet.</li>
+              </ul>
+            </div>
+
+            <div class="confidence-box glass-soft">
+              <div>
+                <h4>Confidence Score</h4>
+                <p id="confidenceOutput">--%</p>
+              </div>
+              <div class="progress-wrap">
+                <div class="progress-bar">
+                  <div id="confidenceBar" class="progress-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Discussion Topic Generator -->
+      <section id="topics" class="section-block">
+        <div class="section-header">
+          <div>
+            <p class="section-tag">Discussion Engine</p>
+            <h2>Generate Discussion Topics</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="two-col-layout">
+          <div class="card glass">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-comments"></i> Topic Generator</h3>
+              <span class="badge">POST /generate-topics</span>
+            </div>
+
+            <label for="topicInput" class="input-label">Event name</label>
+            <input
+              id="topicInput"
+              class="input-control"
+              type="text"
+              placeholder="Example: India launches new AI Mission"
+            />
+
+            <div class="action-row">
+              <button id="generateTopicsBtn" class="primary-btn">
+                <i class="fa-solid fa-lightbulb"></i>
+                Generate Topics
+              </button>
+              <button id="clearTopicsBtn" class="ghost-btn">
+                <i class="fa-solid fa-eraser"></i>
+                Clear
+              </button>
+            </div>
+
+            <div id="topicsLoader" class="loader hidden">
+              <div class="spinner"></div>
+              <span>Generating discussion topics...</span>
+            </div>
+
+            <div id="topicsStatus" class="api-status hidden"></div>
+          </div>
+
+          <div class="card glass">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-list-check"></i> Suggested Topics</h3>
+              <span class="badge info">AI Suggestions</span>
+            </div>
+
+            <ul id="topicsOutput" class="topic-grid">
+              <li class="topic-item empty-state">Topic 1 will appear here.</li>
+              <li class="topic-item empty-state">Topic 2 will appear here.</li>
+              <li class="topic-item empty-state">Topic 3 will appear here.</li>
+              <li class="topic-item empty-state">Topic 4 will appear here.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fact Checker -->
+      <section id="factcheck" class="section-block">
+        <div class="section-header">
+          <div>
+            <p class="section-tag">Verification</p>
+            <h2>Verify Information</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="two-col-layout">
+          <div class="card glass">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-shield-halved"></i> Fact Checker</h3>
+              <span class="badge">POST /fact-check</span>
+            </div>
+
+            <label for="factInput" class="input-label">Enter statement</label>
+            <textarea
+              id="factInput"
+              class="input-control"
+              rows="5"
+              placeholder="Example: India launched a national AI mission in 2025"
+            ></textarea>
+
+            <div class="action-row">
+              <button id="factCheckBtn" class="primary-btn">
+                <i class="fa-solid fa-check-double"></i>
+                Check Facts
+              </button>
+              <button id="clearFactBtn" class="ghost-btn">
+                <i class="fa-solid fa-eraser"></i>
+                Clear
+              </button>
+            </div>
+
+            <div id="factLoader" class="loader hidden">
+              <div class="spinner"></div>
+              <span>Verifying statement...</span>
+            </div>
+
+            <div id="factStatus" class="api-status hidden"></div>
+          </div>
+
+          <div class="card glass">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-file-shield"></i> Verification Result</h3>
+              <span id="factStatusBadge" class="badge neutral">Pending</span>
+            </div>
+
+            <div class="fact-grid">
+              <div class="fact-box glass-soft">
+                <h4>Result</h4>
+                <p id="factVerified">--</p>
+              </div>
+
+              <div class="fact-box glass-soft">
+                <h4>Confidence</h4>
+                <p id="factConfidence">--%</p>
+              </div>
+            </div>
+
+            <div class="result-section">
+              <h4>Source</h4>
+              <p id="factSource" class="empty-state">Source will appear here.</p>
+            </div>
+
+            <div class="result-section">
+              <h4>Explanation</h4>
+              <p id="factExplanation" class="empty-state">
+                Explanation will appear here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- History -->
+      <section id="history" class="section-block">
+        <div class="section-header">
+          <div>
+            <p class="section-tag">Records</p>
+            <h2>Conversation History</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="card glass">
+          <div class="card-header history-header">
+            <h3><i class="fa-solid fa-clock-rotate-left"></i> History Table</h3>
+            <span class="badge">GET /history</span>
+          </div>
+
+          <div class="history-controls">
+            <div class="history-search-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                id="historySearch"
+                placeholder="Search event or summary..."
+              />
+            </div>
+
+            <select id="historyLimit" class="history-select">
+              <option value="5">5 per page</option>
+              <option value="10">10 per page</option>
+              <option value="20">20 per page</option>
+            </select>
+
+            <button id="historySearchBtn" class="primary-btn small-btn">
+              Search
+            </button>
+
+            <button id="historyRefreshBtn" class="ghost-btn small-btn">
+              Refresh
+            </button>
+          </div>
+
+          <div id="historyLoader" class="loader hidden">
+            <div class="spinner"></div>
+            <span>Loading history...</span>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Event</th>
+                  <th>Summary</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <tr>
+                  <td colspan="4" class="empty-row">No history available yet.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination-bar">
+            <button id="prevPageBtn" class="ghost-btn small-btn">
+              <i class="fa-solid fa-chevron-left"></i>
+              Previous
+            </button>
+
+            <div id="historyPagination" class="pagination-info">
+              Page 1
+            </div>
+
+            <button id="nextPageBtn" class="ghost-btn small-btn">
+              Next
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feedback -->
+      <section id="feedback" class="section-block">
+        <div class="section-header">
+          <div>
+            <p class="section-tag">User Experience</p>
+            <h2>Feedback Page</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="two-col-layout">
+          <div class="card glass">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-star"></i> Share Your Feedback</h3>
+              <span class="badge">POST /feedback</span>
+            </div>
+
+            <p class="helper-text">
+              Rate your experience and help improve the assistant.
+            </p>
+
+            <div class="rating-group" id="ratingGroup">
+              <button class="star-btn" data-rating="1"><i class="fa-solid fa-star"></i></button>
+              <button class="star-btn" data-rating="2"><i class="fa-solid fa-star"></i></button>
+              <button class="star-btn" data-rating="3"><i class="fa-solid fa-star"></i></button>
+              <button class="star-btn" data-rating="4"><i class="fa-solid fa-star"></i></button>
+              <button class="star-btn" data-rating="5"><i class="fa-solid fa-star"></i></button>
+            </div>
+
+            <input type="hidden" id="feedbackRating" value="0" />
+
+            <label for="feedbackText" class="input-label">Share your feedback</label>
+            <textarea
+              id="feedbackText"
+              class="input-control"
+              rows="5"
+              placeholder="Tell us what you liked or what can be improved..."
+            ></textarea>
+
+            <div class="action-row">
+              <button id="submitFeedbackBtn" class="primary-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+                Submit
+              </button>
+
+              <button id="clearFeedbackBtn" class="ghost-btn">
+                <i class="fa-solid fa-eraser"></i>
+                Clear
+              </button>
+            </div>
+
+            <div id="feedbackLoader" class="loader hidden">
+              <div class="spinner"></div>
+              <span>Submitting feedback...</span>
+            </div>
+
+            <div id="feedbackStatus" class="api-status hidden"></div>
+          </div>
+
+          <div class="card glass">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-heart"></i> Why This UI Works</h3>
+              <span class="badge info">Project Strength</span>
+            </div>
+
+            <div class="about-points">
+              <div class="about-item glass-soft">
+                <i class="fa-solid fa-check"></i>
+                <span>Modern glassmorphism SaaS design</span>
+              </div>
+              <div class="about-item glass-soft">
+                <i class="fa-solid fa-check"></i>
+                <span>Responsive dashboard layout</span>
+              </div>
+              <div class="about-item glass-soft">
+                <i class="fa-solid fa-check"></i>
+                <span>Clean API-ready structure for FastAPI backend</span>
+              </div>
+              <div class="about-item glass-soft">
+                <i class="fa-solid fa-check"></i>
+                <span>Professional look for final-year project demo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section-block">
+        <div class="section-header">
+          <div>
+            <p class="section-tag">About</p>
+            <h2>Project Overview</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="card glass">
+          <div class="about-grid">
+            <div class="about-panel glass-soft">
+              <h3>Frontend Stack</h3>
+              <p>HTML5, CSS3, JavaScript, Fetch API, Font Awesome, Google Fonts</p>
+            </div>
+
+            <div class="about-panel glass-soft">
+              <h3>Backend Stack</h3>
+              <p>FastAPI with structured endpoints for analysis, topics, fact-checking, history, and feedback</p>
+            </div>
+
+            <div class="about-panel glass-soft">
+              <h3>Design Language</h3>
+              <p>Dark blue gradients, soft glow effects, glassmorphism cards, responsive grids, and modern SaaS styling</p>
+            </div>
+
+            <div class="about-panel glass-soft">
+              <h3>Use Case</h3>
+              <p>Helps students and professionals discuss current events confidently in networking contexts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer glass">
+        <p>© 2026 Personalized Networking Assistant — Built for a polished academic project showcase.</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- External JS -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

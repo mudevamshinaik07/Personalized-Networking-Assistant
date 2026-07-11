@@ -1,4 +1,5 @@
 import os
+import json
 import google.generativeai as genai
 from dotenv import load_dotenv
 
@@ -10,17 +11,48 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 def analyze_event(event_name: str):
-    prompt = f"""
-    Analyze the networking event: {event_name}
 
-    Provide:
-    1. Event overview
-    2. Networking opportunities
-    3. Conversation starters
-    4. Skills to discuss
-    5. Tips for making connections
-    """
+    prompt = f"""
+Analyze this networking event:
+
+{event_name}
+
+Return ONLY valid JSON in this format:
+
+{{
+    "summary":"...",
+    "talking_points":[
+        "...",
+        "...",
+        "...",
+        "...",
+        "..."
+    ],
+    "networking_tips":[
+        "...",
+        "...",
+        "...",
+        "...",
+        "..."
+    ],
+    "confidence_score":95
+}}
+"""
 
     response = model.generate_content(prompt)
 
-    return response.text
+    text = response.text.strip()
+
+    # Remove markdown if Gemini returns ```json
+    text = text.replace("```json", "").replace("```", "").strip()
+
+    try:
+        return json.loads(text)
+
+    except json.JSONDecodeError:
+        return {
+            "summary": text,
+            "talking_points": [],
+            "networking_tips": [],
+            "confidence_score": 80
+        }

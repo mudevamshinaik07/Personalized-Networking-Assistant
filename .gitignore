@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# SQLite Database
+networking.db
+
+# Generated PDFs
+*.pdf
+
+# VS Code
+.vscode/
