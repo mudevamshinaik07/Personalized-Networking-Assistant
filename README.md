@@ -60,7 +60,16 @@ The system combines Artificial Intelligence with modern web technologies to prov
 
 ```text
 Personalized-Networking-Assistant/
-
+│
+├── 1. Brainstorming & Ideation
+├── 2. Requirement Analysis
+├── 3. Project Design Phase
+├── 4. Project Planning Phase
+├── 5. Project Development Phase
+├── 6. Project Testing
+├── 7. Project Documentation
+├── 8. Project Demonstration
+│
 ├── backend/
 │   ├── routes/
 │   ├── services/
@@ -73,7 +82,6 @@ Personalized-Networking-Assistant/
 │   ├── style.css
 │   └── script.js
 │
-|
 ├── requirements.txt
 ├── README.md
 └── .gitignore
