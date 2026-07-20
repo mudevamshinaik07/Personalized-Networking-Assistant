@@ -1,11 +1,5 @@
 # Personalized Networking Assistant
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?logo=fastapi)
-![Gemini AI](https://img.shields.io/badge/Google-Gemini_AI-blue?logo=google)
-![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 ## Project Overview
 
 The Personalized Networking Assistant is an AI-powered web application designed to help students, professionals, and job seekers prepare for networking conversations. The application analyzes current events using Artificial Intelligence, generates relevant discussion topics, verifies factual information, maintains conversation history, generates downloadable PDF reports, and collects user feedback through an interactive web interface.
@@ -13,6 +7,17 @@ The Personalized Networking Assistant is an AI-powered web application designed 
 The system combines Artificial Intelligence with modern web technologies to provide meaningful networking insights, helping users confidently participate in seminars, conferences, workshops, interviews, career fairs, and other professional events.
 
 ---
+
+## Features
+
+- AI-powered event analysis using Google Gemini AI
+- Intelligent discussion topic generation
+- Fact verification system
+- Conversation history management
+- PDF report generation
+- Feedback collection system
+- FastAPI REST APIs
+- Responsive web interface
 
 ## Objectives
 
@@ -27,6 +32,19 @@ The system combines Artificial Intelligence with modern web technologies to prov
 ---
 
 ## Technologies Used
+
+## System Architecture
+
+Frontend (HTML/CSS/JavaScript)
+        │
+        ▼
+FastAPI Backend
+        │
+        ▼
+Google Gemini AI
+        │
+        ▼
+SQLite Database
 
 ### Frontend
 - HTML5
@@ -189,3 +207,12 @@ http://127.0.0.1:8000/docs
 ## Conclusion
 
 The Personalized Networking Assistant demonstrates the integration of Artificial Intelligence, REST APIs, database management, and responsive web technologies to support users in preparing for professional networking conversations. The application offers an intuitive interface and practical features that can be extended for broader real-world use.
+
+## Author
+
+**Vamshi Naik Mude**
+
+B.Tech CSE (Data Science)
+
+GitHub:
+https://github.com/mudevamshinaik07
